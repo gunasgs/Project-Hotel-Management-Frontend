@@ -49,103 +49,58 @@ const SideBar = () => {
               DashBoard
             </NavLink>
           </MenuItem>
-          <SubMenu
-            className="menuu"
-            icon={<FaConciergeBell />}
-            title="FrontDesk"
+          <MenuItem
+            className="menuu mx-1"
+            icon={<FaConciergeBell className="text-white fs-5" />}
           >
-            <SubMenu title="Reservation">
-              <MenuItem>
-                <NavLink exact to={"/reserveview"}>
-                  View
-                </NavLink>
-              </MenuItem>
-              <MenuItem>
-                <NavLink exact to={"/reservebook"}>
-                  Booking
-                </NavLink>
-              </MenuItem>
-            </SubMenu>
-            <MenuItem>
-              <NavLink exact to={"/managerooms"}>
-                Manage Rooms
-              </NavLink>
-            </MenuItem>
-            <MenuItem>
-              <NavLink exact to={"/dashboard"}>
-                Shift Rooms
-              </NavLink>
-            </MenuItem>
-          </SubMenu>
-          <SubMenu className="menuu" icon={<FaSync />} title="Progress">
-            <MenuItem>
-              <NavLink exact to={"/dashboard"}>
-                today's Page
-              </NavLink>
-            </MenuItem>
-            <MenuItem>
-              <NavLink exact to={"/dashboard"}>
-                Monthly view
-              </NavLink>
-            </MenuItem>
-          </SubMenu>
+            <NavLink exact to={"/reserveview"}>
+              Front Desk
+            </NavLink>
+          </MenuItem>
+          <MenuItem
+            className="menuu mx-1"
+            icon={<FaSync className="text-white fs-5" />}
+          >
+            <NavLink exact to={"/reservebook"}>
+              Reservation
+            </NavLink>
+          </MenuItem>
+          <MenuItem
+            className="menuu mx-1"
+            icon={<FaRegUser className="text-white fs-5" />}
+          >
+            <NavLink exact to={"/managerooms"}>
+              Manage Rooms
+            </NavLink>
+          </MenuItem>
+          <MenuItem className="menuu" icon={<FaUserFriends />}>
+            <NavLink exact to={"/staff"}>
+              Staff
+            </NavLink>
+          </MenuItem>
+          <MenuItem
+            className="menuu mx-1"
+            icon={<FaTools className="text-white fs-5" />}
+          >
+            <NavLink exact to={"/maintenance"}>
+              Maintenance
+            </NavLink>
+          </MenuItem>
+
           <SubMenu className="menuu" icon={<FaPhoneAlt />} title="Request">
             <MenuItem>
               <NavLink exact to={"/dashboard"}>
                 Raise New Complaint
               </NavLink>
             </MenuItem>
-            <MenuItem>
-              <NavLink exact to={"/dashboard"}>
-                New Complaints
-              </NavLink>
-            </MenuItem>
-            <MenuItem>
-              <NavLink exact to={"/dashboard"}>
-                Closed Ones
-              </NavLink>
-            </MenuItem>
+
             <MenuItem>
               <NavLink exact to={"/dashboard"}>
                 Shift a Room
               </NavLink>
             </MenuItem>
           </SubMenu>
-          <SubMenu className="menuu" icon={<FaTools />} title="Maintenance">
-            <MenuItem>
-              <NavLink exact to={"/maintenance"}>
-                Maintenance Block
-              </NavLink>
-            </MenuItem>
-            <MenuItem>
-              <NavLink exact to={"/dashboard"}>
-                Upcoming
-              </NavLink>
-            </MenuItem>
-            <MenuItem>
-              <NavLink exact to={"/dashboard"}>
-                On Going
-              </NavLink>
-            </MenuItem>
-            <MenuItem>
-              <NavLink exact to={"/dashboard"}>
-                Maintenance History
-              </NavLink>
-            </MenuItem>
-            <MenuItem>
-              <NavLink exact to={"/dashboard"}>
-                Maintenance Types
-              </NavLink>
-            </MenuItem>
-          </SubMenu>
-          <MenuItem className="menuu" icon={<FaUserFriends />}>
-            <NavLink exact to={"/staff"}>
-              Staff
-            </NavLink>
-          </MenuItem>
-          <MenuItem className="menuu" icon={<FaRegUser />}>
-            Corprate Booking
-          </MenuItem>
+
           <MenuItem className="menuu" icon={<FaFile />}>
             Reports
           </MenuItem>

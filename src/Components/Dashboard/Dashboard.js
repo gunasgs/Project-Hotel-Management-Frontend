@@ -239,17 +239,17 @@ function Dashboard(props) {
                     <Featured />
                   </div>
                 </div>
-                <div class="footer">
+                <div class="footer text-center">
                   <div class="copyright text-center mt-3">
                     <p>
                       Copyright © Designed & Developed by{" "}
                       <a
-                        href="https://digiacuity.com/"
+                        href="https://www.linkedin.com/in/guna-seelan-6b9636212/"
                         target="_blank"
                         className="text-decoration-none digi me-2"
                         rel="noreferrer"
                       >
-                        Digiacuity
+                        GunaSgs
                       </a>
                       2022
                     </p>
