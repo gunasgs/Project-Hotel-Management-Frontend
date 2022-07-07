@@ -1,0 +1,12 @@
+.btn-book {
+    background-color: blueviolet;
+    color: #fff;
+}
+
+@media print {
+
+    .printt {
+        height: 9in;
+        padding: 30px;
+    }
+}
