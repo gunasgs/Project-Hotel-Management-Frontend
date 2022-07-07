@@ -109,7 +109,6 @@ function Manageroooms() {
 
         swal(" Rooms has been deleted!", {
           icon: "success",
-          timer: 3000,
         });
       } else {
         alert("Something went wrong");

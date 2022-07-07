@@ -51,14 +51,16 @@ function ReserveBook() {
           "https://project-hotel-management.herokuapp.com/booking",
           values
         );
-        // navigate("/reservebook");
-
-        swal(" Room Added", {
-          icon: "success",
-        });
       } catch (error) {}
     },
   });
+
+  let buttonclickbook = (e) => {
+    swal(" Room Added", {
+      icon: "success",
+      timer: 2000,
+    });
+  };
 
   return (
     <>
@@ -684,6 +686,9 @@ function ReserveBook() {
                                               <button
                                                 type="submit"
                                                 class="btn btn-success booking"
+                                                onClick={buttonclickbook}
+                                                data-bs-dismiss="modal"
+                                                aria-label="Close"
                                               >
                                                 Complete Booking
                                               </button>

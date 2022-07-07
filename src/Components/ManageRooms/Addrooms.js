@@ -26,6 +26,7 @@ function Addrooms() {
   let buttonclick = (e) => {
     swal(" Room Added", {
       icon: "success",
+      timer: 3000,
     });
   };
 
