@@ -17,7 +17,7 @@ function Addrooms() {
     onSubmit: async (values) => {
       try {
         await axios.post(
-          "https://hotel-backend-deploy.herokuapp.com/room",
+          "https://project-hotel-management.herokuapp.com/room",
           values
         );
       } catch (error) {}

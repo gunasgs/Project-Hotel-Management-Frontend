@@ -15,7 +15,7 @@ function Register() {
     onSubmit: async (values) => {
       try {
         await axios.post(
-          "https://hotel-backend-deploy.herokuapp.com/register",
+          "https://project-hotel-management.herokuapp.com/register",
           values
         );
         navigate("/");

@@ -14,7 +14,7 @@ function Staff() {
   async function fetchAll() {
     try {
       let userData = await axios.get(
-        "https://hotel-backend-deploy.herokuapp.com/staff"
+        "https://project-hotel-management.herokuapp.com/staff"
       );
       setstaff(userData.data);
     } catch (error) {}
@@ -31,13 +31,13 @@ function Staff() {
       try {
         if (edit) {
           await axios.put(
-            `https://hotel-backend-deploy.herokuapp.com/staffedit/${currentstaff}`,
+            `https://project-hotel-management.herokuapp.com/staffedit/${currentstaff}`,
             values
           );
           fetchAll();
         } else {
           await axios.post(
-            "https://hotel-backend-deploy.herokuapp.com/staff",
+            "https://project-hotel-management.herokuapp.com/staff",
             values
           );
           fetchAll();
@@ -51,7 +51,7 @@ function Staff() {
   let handleEdit = async (id) => {
     try {
       let staffedit = await axios.get(
-        `https://hotel-backend-deploy.herokuapp.com/staffview/${id}`
+        `https://project-hotel-management.herokuapp.com/staffview/${id}`
       );
       formik.setValues({
         name: staffedit.data.name,
@@ -77,7 +77,7 @@ function Staff() {
   let handleView = async (id) => {
     try {
       let view1 = await axios.get(
-        `https://hotel-backend-deploy.herokuapp.com/staffview/${id}`
+        `https://project-hotel-management.herokuapp.com/staffview/${id}`
       );
 
       setview(view1.data);
@@ -94,7 +94,7 @@ function Staff() {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`https://hotel-backend-deploy.herokuapp.com/staff/${id}`)
+          .delete(`https://project-hotel-management.herokuapp.com/staff/${id}`)
           .then(() => {
             fetchAll();
           });

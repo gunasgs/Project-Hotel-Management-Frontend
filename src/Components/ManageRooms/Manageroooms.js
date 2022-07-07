@@ -17,7 +17,7 @@ function Manageroooms() {
   async function fetchAll() {
     try {
       let userData = await axios.get(
-        "https://hotel-backend-deploy.herokuapp.com/rooms"
+        "https://project-hotel-management.herokuapp.com/rooms"
       );
       setrooms(userData.data);
     } catch (error) {}
@@ -36,13 +36,13 @@ function Manageroooms() {
       try {
         if (edit) {
           await axios.put(
-            `https://hotel-backend-deploy.herokuapp.com/roomsedit/${currentroom}`,
+            `https://project-hotel-management.herokuapp.com/${currentroom}`,
             values
           );
           fetchAll();
         } else {
           await axios.post(
-            "https://hotel-backend-deploy.herokuapp.com/room",
+            "https://project-hotel-management.herokuapp.com/room",
             values
           );
           fetchAll();
@@ -56,7 +56,7 @@ function Manageroooms() {
   let handleEdit = async (id) => {
     try {
       let roomedit = await axios.get(
-        `https://hotel-backend-deploy.herokuapp.com/roomsview/${id}`
+        `https://project-hotel-management.herokuapp.com/roomsview/${id}`
       );
       formik.setValues({
         roomnumber: roomedit.data.roomnumber,
@@ -84,7 +84,7 @@ function Manageroooms() {
   let handleView = async (id) => {
     try {
       let view = await axios.get(
-        `https://hotel-backend-deploy.herokuapp.com/roomsview/${id}`
+        `https://project-hotel-management.herokuapp.com/roomsview/${id}`
       );
 
       setview(view.data);
@@ -102,7 +102,7 @@ function Manageroooms() {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`https://hotel-backend-deploy.herokuapp.com/rooms/${id}`)
+          .delete(`https://project-hotel-management.herokuapp.com/rooms/${id}`)
           .then(() => {
             fetchAll();
           });

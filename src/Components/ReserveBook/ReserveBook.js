@@ -48,7 +48,7 @@ function ReserveBook() {
     onSubmit: async (values) => {
       try {
         await axios.post(
-          "https://hotel-backend-deploy.herokuapp.com/booking",
+          "https://project-hotel-management.herokuapp.com/booking",
           values
         );
         // navigate("/reservebook");

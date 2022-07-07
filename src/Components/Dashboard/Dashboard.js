@@ -44,10 +44,10 @@ function Dashboard(props) {
   async function fetchAll() {
     try {
       let userData = await axios.get(
-        "https://hotel-backend-deploy.herokuapp.com/bookings"
+        "https://project-hotel-management.herokuapp.com/bookings"
       );
       let roomData = await axios.get(
-        "https://hotel-backend-deploy.herokuapp.com/rooms"
+        "https://project-hotel-management.herokuapp.com/rooms"
       );
       setbooking(userData.data);
       setroom(roomData.data);
