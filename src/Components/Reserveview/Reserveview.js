@@ -69,11 +69,11 @@ function Reserveview() {
           </div>
 
           <div className="col-10 mt-4 mb-5">
-            <h1 class="h3 mb-2 text-gray-800 ms-5">Booked Details</h1>
+            <h1 class="h3 mb-2 text-gray-800 ms-3">Booked Details</h1>
 
-            <div class="card shadow mb-4">
+            <div class="card  mb-4">
               <div class="card-body">
-                <div class="table-responsive ms-5">
+                <div class="table-responsive ">
                   <table
                     class="table table-bordered"
                     id="dataTable"

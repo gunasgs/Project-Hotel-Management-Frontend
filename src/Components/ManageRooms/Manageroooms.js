@@ -9,8 +9,7 @@ import swal from "sweetalert";
 function Manageroooms() {
   const [view, setview] = useState({});
   const [rooms, setrooms] = useState([]);
-  const [checkin, setcheckin] = useState(false);
-  const [checkout, setcheckout] = useState(true);
+
   const [edit, setedit] = useState(false);
   const [currentroom, setcurrentroom] = useState("");
 
@@ -26,19 +25,22 @@ function Manageroooms() {
     initialValues: {
       roomnumber: "",
       roomtype: "",
-      checkin: "",
-      checkout: "",
-      rate: "",
+
+      price: "",
       status: "",
-      ac: "",
+      features: "",
     },
     onSubmit: async (values) => {
       try {
         if (edit) {
           await axios.put(
-            `https://project-hotel-management.herokuapp.com/${currentroom}`,
+            `https://project-hotel-management.herokuapp.com/roomsedit/${currentroom}`,
             values
           );
+          swal(" Room Updated", {
+            icon: "success",
+            timer: 2000,
+          });
           fetchAll();
         } else {
           await axios.post(
@@ -61,24 +63,16 @@ function Manageroooms() {
       formik.setValues({
         roomnumber: roomedit.data.roomnumber,
         roomtype: roomedit.data.roomtype,
-        checkin: roomedit.data.checkin,
-        checkout: roomedit.data.checkout,
-        rate: roomedit.data.rate,
+        features: roomedit.data.features,
+        price: roomedit.data.price,
+
         status: roomedit.data.status,
-        ac: roomedit.data.ac,
       });
       setcurrentroom(roomedit.data._id);
       setedit(true);
     } catch (error) {
       alert("Something went wrong");
     }
-  };
-
-  let buttonclickedit = (e) => {
-    swal(" Room Updated", {
-      icon: "success",
-      timer: 2000,
-    });
   };
 
   let handleView = async (id) => {
@@ -116,15 +110,6 @@ function Manageroooms() {
     });
   };
 
-  let handlein = (e) => {
-    setcheckin(e);
-    setcheckout(!e);
-  };
-
-  let handlein2 = (ee) => {
-    setcheckout(ee);
-    setcheckin(!ee);
-  };
   useEffect(() => {
     fetchAll();
   }, []);
@@ -133,110 +118,14 @@ function Manageroooms() {
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-2 me-5 p-0">
+          <div className="col-2  p-0">
             <SideBar />
           </div>
 
-          <div className="col-9  ">
-            <div className="container-fluid">
-              <h2 className="mt-3">Room Deatils</h2>
-              <div className="row">
-                <div className="col-4 mt-2">
-                  <div class="row   align-items-center">
-                    <div class="col-6 ">
-                      <label for="inputPassword6" class="col-form-label fs-6">
-                        Room status
-                      </label>
-                    </div>
-                    <div class="col-6">
-                      <select
-                        class="form-select"
-                        aria-label="Default select example"
-                      >
-                        <option selected>-select-</option>
-                        <option>Available</option>
-                        <option>Booked</option>
-                        <option>Occupied</option>
-                        <option>Reservation</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-4 mt-2">
-                  <div class="row align-items-center">
-                    <div class="col-6">
-                      <label for="inputPassword6" class="col-form-label">
-                        Room type
-                      </label>
-                    </div>
-                    <div class="col-6">
-                      <select
-                        class="form-select"
-                        aria-label="Default select example"
-                      >
-                        <option selected>-select-</option>
-                        <option value="1">Single</option>
-                        <option value="2">Double</option>
-                        <option value="3">Family</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div className=" d-grid gap-1 col-2 ms-4 mt-2">
-                  <button className="btn btn-outline-primary btn-md ">
-                    Submit
-                  </button>
-                </div>
-                <div className="col-4 mt-3">
-                  <div class="row  align-items-center">
-                    <div class="col-6">
-                      <label for="input" class="col-form-label">
-                        Check In
-                      </label>
-                    </div>
-                    <div class="col-6">
-                      <input
-                        type="date"
-                        id="inputPassword6"
-                        class="form-control"
-                        aria-describedby="passwordHelpInline"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-4 mt-3">
-                  <div class="row  align-items-center">
-                    <div class="col-6">
-                      <label for="inputPassword6" class="col-form-label">
-                        Check Out
-                      </label>
-                    </div>
-                    <div class="col-6">
-                      <input
-                        type="date"
-                        id="inputPassword6"
-                        class="form-control"
-                        aria-describedby="passwordHelpInline"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="d-grid gap-1 col-2 mt-3 ms-4">
-                  <button className=" btn btn-outline-warning btn-md ">
-                    Reset
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row mt-1">
-          <div className="col-2 me-5"></div>
-
-          <div className="col-9 ">
+          <div className="col-10 ">
             <div class="card-body ">
-              <div className="d-flex justify-content-end mb-2">
+              <div className="d-flex justify-content-between mb-2">
+                <h2 className=" ms-2">Room Deatils</h2>{" "}
                 <button className=" btn btn-success">
                   <Link
                     to="/addrooms"
@@ -257,9 +146,9 @@ function Manageroooms() {
                     <tr>
                       <th>Room No</th>
                       <th>Room Type</th>
-                      <th>Booking Status</th>
-                      <th>Check In</th>
-                      <th>Check Out</th>
+                      <th>Status</th>
+                      <th>Features</th>
+                      <th>price</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -270,39 +159,10 @@ function Manageroooms() {
                         <tr>
                           <td>{user.roomnumber}</td>
                           <td>{user.roomtype}</td>
-                          {/* <td>{user.checkin}{user.checkin ? <button>checkin</button>:<button>checkout</button>}</td>
-                       
-                        {console.log(user.checkin)} */}
                           <td>{user.status}</td>
-                          <td>
-                            {checkin ? (
-                              <button className="btn btn-success">
-                                checkin
-                              </button>
-                            ) : (
-                              <button
-                                className="btn btn-warning"
-                                onClick={() => handlein(user.checkin)}
-                              >
-                                Checkout
-                              </button>
-                            )}
-                          </td>
-                          <td>
-                            {checkout ? (
-                              <button className="btn btn-success">
-                                checkin
-                              </button>
-                            ) : (
-                              <button
-                                className="btn btn-warning"
-                                onClick={() => handlein2(user.checkout)}
-                              >
-                                Checkout
-                              </button>
-                            )}
-                          </td>
 
+                          <td>{user.features}</td>
+                          <td>{user.price}</td>
                           <td>
                             <button
                               type="button"
@@ -341,7 +201,7 @@ function Manageroooms() {
                                       <form onSubmit={formik.handleSubmit}>
                                         <div class="row g-4 mb-5 mt-3 ">
                                           <div class="col-6">
-                                            <div class="p-3 border  bg-light">
+                                            <div class="p-2 border  ">
                                               <h5> Room Number</h5>
                                             </div>
                                           </div>
@@ -352,11 +212,11 @@ function Manageroooms() {
                                               id="roomnumber"
                                               onChange={formik.handleChange}
                                               value={formik.values.roomnumber}
-                                              class="form-control  p-3 border bg-light"
+                                              class="form-control  p-2 border "
                                             />
                                           </div>
                                           <div class="col-6">
-                                            <div class="p-3 border bg-light">
+                                            <div class="p-2 border ">
                                               <h5> Room type</h5>
                                             </div>
                                           </div>
@@ -364,7 +224,7 @@ function Manageroooms() {
                                             <select
                                               onChange={formik.handleChange}
                                               value={formik.values.roomtype}
-                                              class="form-select  p-3 border bg-light"
+                                              class="form-select  p-2 border "
                                               name="roomtype"
                                               id="roomtype"
                                               aria-label="Default select example"
@@ -376,37 +236,82 @@ function Manageroooms() {
                                             </select>
                                           </div>
                                           <div class="col-6">
-                                            <div class="p-3 border bg-light">
-                                              <h5>Check In</h5>
+                                            <div class="p-2 border text-center">
+                                              <label class="form ">
+                                                <h5>Features</h5>
+                                              </label>
+                                            </div>
+                                          </div>
+                                          <div class="col-6 p-2 border text-center ">
+                                            <div class="form-check form-check-inline mt-2 ">
+                                              <input
+                                                class="form-check-input "
+                                                type="checkbox"
+                                                id="features"
+                                                value="Wi-Fi"
+                                                onChange={formik.handleChange}
+                                              />
+                                              <label class="form-check-label">
+                                                Wi-Fi
+                                              </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                              <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                id="features"
+                                                value="AC"
+                                                onChange={formik.handleChange}
+                                              />
+                                              <label class="form-check-label">
+                                                AC
+                                              </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                              <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                id="features"
+                                                value="TV"
+                                                onChange={formik.handleChange}
+                                              />
+                                              <label class="form-check-label">
+                                                TV
+                                              </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                              <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                id="features"
+                                                value="Refrigerator"
+                                                onChange={formik.handleChange}
+                                              />
+                                              <label class="form-check-label">
+                                                Refrigerator
+                                              </label>
                                             </div>
                                           </div>
                                           <div class="col-6">
-                                            <input
-                                              type="date"
-                                              name="checkin"
-                                              id="checkin"
-                                              onChange={formik.handleChange}
-                                              value={formik.values.checkin}
-                                              class="form-control  p-3 border bg-light"
-                                            />
-                                          </div>
-                                          <div class="col-6">
-                                            <div class="p-3 border bg-light">
-                                              <h5>Check Out </h5>
+                                            <div class="p-2 border text-center">
+                                              <label>
+                                                <h5>Price</h5>
+                                              </label>
                                             </div>
                                           </div>
-                                          <div class="col-6">
+                                          <div class="col-6 ">
                                             <input
-                                              type="date"
-                                              name="checkout"
-                                              id="checkout"
                                               onChange={formik.handleChange}
-                                              value={formik.values.checkout}
-                                              class="form-control  p-3 border bg-light"
+                                              value={formik.values.price}
+                                              class="form-control p-2 mt-2 border "
+                                              name="price"
+                                              id="price"
+                                              type="number"
                                             />
                                           </div>
+
                                           <div class="col-6">
-                                            <div class="p-3 border bg-light">
+                                            <div class="p-2 border">
                                               <h5> status</h5>
                                             </div>
                                           </div>
@@ -416,46 +321,24 @@ function Manageroooms() {
                                               id="status"
                                               onChange={formik.handleChange}
                                               value={formik.values.status}
-                                              class="form-select  p-3 border bg-light"
+                                              class="form-select  p-2 border "
                                               aria-label="Default select example"
                                             >
                                               <option selected>-select-</option>
-                                              <option className="text-warning">
-                                                Reserved
-                                              </option>
+
                                               <option className="text-success">
-                                                Active
+                                                Available
                                               </option>
                                               <option className="text-danger">
-                                                Booked
+                                                UnAvailable
                                               </option>
-                                            </select>
-                                          </div>
-
-                                          <div class="col-6">
-                                            <div class="p-3 border bg-light">
-                                              <h5> Air Condition </h5>
-                                            </div>
-                                          </div>
-                                          <div class="col-6">
-                                            <select
-                                              name="ac"
-                                              id="ac"
-                                              onChange={formik.handleChange}
-                                              value={formik.values.ac}
-                                              class="form-select  p-3 border bg-light"
-                                              aria-label="Default select example"
-                                            >
-                                              <option selected>-select-</option>
-                                              <option>AC</option>
-                                              <option>Non-AC</option>
                                             </select>
                                           </div>
                                         </div>
+
                                         <div className="form-group mt-2">
                                           <input
                                             type={"submit"}
-                                            onClick={buttonclickedit}
                                             className="btn btn-primary"
                                             value="Update"
                                             data-bs-dismiss="modal"
@@ -479,7 +362,7 @@ function Manageroooms() {
                             </div>
                             <button
                               type="button"
-                              class="btn btn-warning  bttn"
+                              class="btn btn-warning  bttn text-light"
                               onClick={() => handleView(user._id)}
                               data-bs-toggle="modal"
                               data-bs-target="#exampleModal"
@@ -514,53 +397,53 @@ function Manageroooms() {
                                     <div className="container-fluid ">
                                       <div class="row g-4 mb-5 mt-3 ">
                                         <div class="col-6">
-                                          <div class="p-3 border  bg-light">
-                                            <h5> Room Number</h5>
+                                          <div class="p-3 border text-center">
+                                            Room Number
                                           </div>
                                         </div>
                                         <div class="col-6">
-                                          <div class="p-3 border bg-light">
+                                          <div class="p-3 border text-center">
                                             {view.roomnumber}
                                           </div>
                                         </div>
                                         <div class="col-6">
-                                          <div class="p-3 border bg-light">
-                                            <h5>Room Type</h5>
+                                          <div class="p-3 border text-center">
+                                            Room Type
                                           </div>
                                         </div>
                                         <div class="col-6">
-                                          <div class="p-3 border bg-light">
+                                          <div class="p-3 border text-center">
                                             {view.roomtype}
                                           </div>
                                         </div>
                                         <div class="col-6">
-                                          <div class="p-3 border bg-light">
-                                            <h5>Room Status</h5>
+                                          <div class="p-3 border text-center">
+                                            Room Status
                                           </div>
                                         </div>
                                         <div class="col-6">
-                                          <div class="p-3 border bg-light">
+                                          <div class="p-3 border text-center">
                                             {view.status}
                                           </div>
                                         </div>
                                         <div class="col-6">
-                                          <div class="p-3 border bg-light">
-                                            <h5>Check In </h5>
+                                          <div class="p-3 border text-center">
+                                            Features
                                           </div>
                                         </div>
                                         <div class="col-6">
-                                          <div class="p-3 border bg-light">
-                                            {view.checkin}
+                                          <div class="p-3 border text-center">
+                                            {view.features}
                                           </div>
                                         </div>
                                         <div class="col-6">
-                                          <div class="p-3 border bg-light">
-                                            <h5> Check Out</h5>
+                                          <div class="p-3 border text-center">
+                                            Price
                                           </div>
                                         </div>
                                         <div class="col-6">
-                                          <div class="p-3 border bg-light">
-                                            {view.checkout}
+                                          <div class="p-3 border text-center">
+                                            {view.price}
                                           </div>
                                         </div>
                                       </div>

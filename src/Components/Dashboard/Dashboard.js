@@ -12,27 +12,27 @@ let float = [
   {
     name: " Strater Package",
     color: "bg-danger",
-    value: "progress-bar 60%",
+    value: " 60%",
   },
   {
     name: " Honeymoon Package",
     value: "40%",
-    color: "progress-bar bg-warning",
+    color: "bg-warning",
   },
   {
     name: " Vacation Package",
     value: "30%",
-    color: "progress-bar bg-primary",
+    color: " bg-primary",
   },
   {
     name: " Continental Package",
     value: "25%",
-    color: " progress-bar bg-info",
+    color: "  bg-info",
   },
   {
     name: " Spring Package",
     value: "15%",
-    color: "progress-bar bg-success",
+    color: "bg-success",
   },
 ];
 
@@ -64,11 +64,11 @@ function Dashboard(props) {
       <Topbar />
 
       <div class="container-fluid">
-        <div class="row  mt-5 ">
-          <div className="col-lg-2 p-0"></div>
-          <div className="col-lg-10 mt-4">
-            <div className="row ms-4">
-              <div class="col-xl-3   col-sm-8 mt-4 ">
+        <div class="row ">
+          <div className="col-lg-2"></div>
+          <div className="col-lg-10 mt-3 ">
+            <div className="row ms-1 mt-5">
+              <div class="col-xl-3   col-sm-8 ">
                 <div class="card booking cardd">
                   <div class="card-body">
                     <div class="booking-status  d-flex align-items-center">
@@ -97,7 +97,7 @@ function Dashboard(props) {
                 </div>
               </div>
 
-              <div class="col-xl-3 col-sm-8 mt-4">
+              <div class="col-xl-3 col-sm-8 ">
                 <div class="card booking cardd">
                   <div class="card-body">
                     <div class="booking-status d-flex align-items-center">
@@ -127,7 +127,7 @@ function Dashboard(props) {
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-8 mt-4">
+              <div class="col-xl-3 col-sm-8 ">
                 <div class="card booking cardd">
                   <div class="card-body">
                     <div class="booking-status d-flex align-items-center">
@@ -159,7 +159,7 @@ function Dashboard(props) {
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-8 mt-4">
+              <div class="col-xl-3 col-sm-8 ">
                 <div class="card booking cardd">
                   <div class="card-body">
                     <div class="booking-status d-flex align-items-center">
@@ -193,20 +193,18 @@ function Dashboard(props) {
               </div>
             </div>
 
-            <div className="row   ms-4">
-              <div className="charts">
-                <Calendar
-                  onChange={onChange}
-                  className="cal shadow "
-                  value={value}
-                />
+            <div className="row  mt-3 ms-3">
+              <div class="col-lg-4 col-md-12 col-sm-12 cal ">
+                <Calendar onChange={onChange} value={value} />
+              </div>
+              <div class="col-lg-8 col-md-12 col-sm-12 ">
                 <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} />
               </div>
-              <div className="container-fluid mb-3">
-                <div class="row ps-1  ">
-                  <div class="col-lg-6 col-sm-8  mb-4">
-                    <div class="card shadow ">
-                      <div class="card-header py-3">
+              <div className="container-fluid mt-3">
+                <div class="row  ">
+                  <div class="col-lg-6 pe-3 col-md-12 col-sm-12 p-0 ">
+                    <div class="card ">
+                      <div class="card-header py-4 ">
                         <h6 class="m-0 font-weight-bold text-secondary">
                           Top Selected Package
                         </h6>
@@ -219,9 +217,9 @@ function Dashboard(props) {
                                 {e.name}
                                 <span class="float-right"> {e.value}</span>
                               </h4>
-                              <div class="progress mb-4">
+                              <div class="progress  mb-4">
                                 <div
-                                  class={e.color}
+                                  class={`progress-bar progress-bar-striped progress-bar-animated ${e.color}`}
                                   role="progressbar"
                                   style={{ width: e.value }}
                                   aria-valuenow={e.value}
@@ -235,25 +233,24 @@ function Dashboard(props) {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-6 ">
+                  <div className="col-lg-6 p-0">
                     <Featured />
                   </div>
                 </div>
-                <div class="footer text-center">
-                  <div class="copyright text-center mt-3">
-                    <p>
-                      Copyright © Designed & Developed by{" "}
-                      <a
-                        href="https://www.linkedin.com/in/guna-seelan-6b9636212/"
-                        target="_blank"
-                        className="text-decoration-none digi me-2"
-                        rel="noreferrer"
-                      >
-                        GunaSgs
-                      </a>
-                      2022
-                    </p>
-                  </div>
+              </div>
+              <div class="footer">
+                <div class="copyright text-center mt-3 ">
+                  <p>
+                    Copyright © Designed & Developed by{" "}
+                    <a
+                      href="https://www.linkedin.com/in/guna-seelan-6b9636212/"
+                      target="_blank"
+                      className="text-decoration-none digi me-2"
+                      rel="noreferrer"
+                    >
+                      GunaSgs
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>

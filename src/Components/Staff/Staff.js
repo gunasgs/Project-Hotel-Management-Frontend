@@ -121,7 +121,7 @@ function Staff() {
 
           <div className="col-lg-10 mt-4 mb-5">
             <div className="d-flex justify-content-between">
-              <h1 class="h3 mb-2  ms-5">Employee Details</h1>
+              <h1 class="h3 mb-2  ms-2">Employee Details</h1>
               <button className=" btn btn-success">
                 <Link
                   to="/addstaff"
@@ -132,9 +132,9 @@ function Staff() {
               </button>
             </div>
 
-            <div class="card shadow mb-4 mt-4 ms-5">
+            <div class="card  mb-4 mt-4 ms-1">
               <div class="card-body">
-                <div class="table-responsive ms-3">
+                <div class="table-responsive ">
                   <table
                     class="table table-bordered css-serial"
                     id="dataTable"
@@ -206,7 +206,7 @@ function Staff() {
                                     <div class="modal-body">
                                       <div className="container-fluid ">
                                         <form onSubmit={formik.handleSubmit}>
-                                          <div class="row g-4 mb-5 mt-3 ">
+                                          <div class="row g-4 mb-2 mt-1 ">
                                             <div class="col-6">
                                               <div class="p-3 border  bg-light">
                                                 <h5> Employee Name</h5>
@@ -326,7 +326,7 @@ function Staff() {
 
                               <button
                                 type="button"
-                                class="btn btn-warning  bttn"
+                                class="btn btn-warning text-light bttn"
                                 onClick={() => handleView(user._id)}
                                 data-bs-toggle="modal"
                                 data-bs-target="#exampleModal"

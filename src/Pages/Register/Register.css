@@ -1,0 +1,27 @@
+.important {
+    color: red;
+    padding-left: 2px;
+    font-weight: 700;
+
+}
+
+.form-label {
+    font-size: 16px;
+}
+
+.color {
+    color: blueviolet;
+    font-weight: 500;
+}
+
+.color:hover {
+    color: blueviolet;
+    font-weight: 700;
+    text-decoration: underline;
+
+}
+
+.color-btn {
+    background-color: blueviolet;
+    color: #fff;
+}

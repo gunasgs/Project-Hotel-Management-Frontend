@@ -8,11 +8,9 @@ function Addrooms() {
     initialValues: {
       roomnumber: "",
       roomtype: "",
-      checkin: "",
-      checkout: "",
-      rate: 0,
+      price: "",
       status: "",
-      ac: "",
+      features: "",
     },
     onSubmit: async (values) => {
       try {
@@ -34,17 +32,16 @@ function Addrooms() {
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-3 p-0">
+          <div className="col-2 p-0">
             <SideBar />
           </div>
 
-          <div className="col-9 ">
+          <div className="col-10 ">
+            <h2 className="mt-5 ms-3">Add Room Deatils</h2>
             <div className="container-fluid mt-5">
-              <div className="row">
-                <h2>Add Room Deatils</h2>
-
+              <div className="row ms-5">
                 <form onSubmit={formik.handleSubmit}>
-                  <div class="row g-3 mt-4">
+                  <div class="row g-3 mt-2">
                     <div class="col-2">
                       <label for="input" class="form-label">
                         Room Number
@@ -85,68 +82,6 @@ function Addrooms() {
                     </div>
                   </div>
 
-                  {/* <div class="row g-3 mt-3">
-                    <div class="col-2">
-                      <label for="checkin" class="col-form-label">
-                        Check In
-                      </label>
-                    </div>
-                    <div class="col-4">
-                      <select
-                        onChange={formik.handleChange}
-                        value={formik.values.checkin}
-                        class="form-select"
-                        name="checkin"
-                        id="checkin"
-                        aria-label="Default select example"
-                      >
-                        <option selected>-select-</option>
-                        <option>true</option>
-                        <option>false</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="row g-3 mt-3">
-                    <div class="col-2">
-                      <label for="checkout" class="col-form-label">
-                        check Out
-                      </label>
-                    </div>
-                    <div class="col-4">
-                      <select
-                        onChange={formik.handleChange}
-                        value={formik.values.checkout}
-                        class="form-select"
-                        name="checkout"
-                        id="checkout"
-                        aria-label="Default select example"
-                      >
-                        <option selected>-select-</option>
-                        <option>true</option>
-                        <option>false</option>
-                      </select>
-                    </div>
-                  </div> */}
-                  {/* <div class="row g-3 mt-3">
-                  <div class="col-2">
-                    <label for="input" class="form-label">
-                      Rate
-                    </label>
-                  </div>
-
-                  <div class="col-4">
-                    <input
-                      type="text"
-                      name="rate"
-                      id="rate"
-                      onChange={formik.handleChange}
-                      value={formik.values.rate}
-                      class="form-control"
-                    />
-                  </div>
-</div> */}
-
                   <div class="row g-3 mt-3">
                     <div class="col-2">
                       <label for="inputPassword6" class="col-form-label">
@@ -163,34 +98,73 @@ function Addrooms() {
                         aria-label="Default select example"
                       >
                         <option selected>-select-</option>
-                        <option>Reserved</option>
-                        <option>Active</option>
-                        <option>Booked</option>
+                        <option>Available</option>
+                        <option>UnAvailable</option>
                       </select>
                     </div>
                   </div>
                   <div class="row g-3 mt-3">
                     <div class="col-2">
-                      <label for="ac" class="col-form-label">
-                        Air Condition
-                      </label>
+                      <label class="col-form-label">Features</label>
                     </div>
                     <div class="col-4">
-                      <select
-                        name="ac"
-                        id="ac"
-                        onChange={formik.handleChange}
-                        value={formik.values.ac}
-                        class="form-select"
-                        aria-label="Default select example"
-                      >
-                        <option selected>-select-</option>
-                        <option>AC</option>
-                        <option>Non-AC</option>
-                      </select>
+                      <div class="form-check form-check-inline ">
+                        <input
+                          class="form-check-input "
+                          type="checkbox"
+                          id="features"
+                          value="Wi-Fi"
+                          onChange={formik.handleChange}
+                        />
+                        <label class="form-check-label">Wi-Fi</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="features"
+                          value="AC"
+                          onChange={formik.handleChange}
+                        />
+                        <label class="form-check-label">AC</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="features"
+                          value="TV"
+                          onChange={formik.handleChange}
+                        />
+                        <label class="form-check-label">TV</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="features"
+                          value="Refrigerator"
+                          onChange={formik.handleChange}
+                        />
+                        <label class="form-check-label">Refrigerator</label>
+                      </div>
                     </div>
                   </div>
-
+                  <div class="row g-3 mt-3">
+                    <div class="col-2">
+                      <label class="col-form-label">Price</label>
+                    </div>
+                    <div class="col-4">
+                      <input
+                        onChange={formik.handleChange}
+                        value={formik.values.price}
+                        class="form-control"
+                        name="price"
+                        id="price"
+                        type="number"
+                      />
+                    </div>
+                  </div>
                   <div className="row">
                     <div class="col-6 text-center mt-5">
                       <button

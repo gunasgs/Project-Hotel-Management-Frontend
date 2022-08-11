@@ -70,7 +70,7 @@ function ReserveBook() {
             <Sidebar />
           </div>
           <div className="col-lg-10  mt-4 mb-3  ">
-            <div className=" ms-5">
+            <div className=" ms-2">
               <h2>Room Information</h2>
               <div className="container-fluid">
                 <form class="row g-2 mt-2">
@@ -201,10 +201,9 @@ function ReserveBook() {
         <div className="row">
           <div className="col-lg-2"></div>
           <div className="col-lg-10 mt-2 ">
+            <h2 className="ms-2">Customer Detail</h2>
             <div className="container-fluid">
-              <h2 className="ms-4">Customer Detail</h2>
-
-              <form class="row  ms-5 g-3 mt-2">
+              <form class="row  ms-2 g-3 mt-2">
                 <div class="col-md-6">
                   <label for="firstname" class="form-label">
                     First Name
@@ -352,7 +351,7 @@ function ReserveBook() {
                   />
                 </div>
               </form>
-              <div class="col-12 mt-3 ms-4 py-3">
+              <div class="col-12 mt-3 ms-3 py-3">
                 <button
                   class="btn  btn-book px-5"
                   data-toggle="modal"

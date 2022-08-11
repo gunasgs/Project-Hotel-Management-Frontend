@@ -6,15 +6,14 @@ function Maintenance() {
     <>
       <div className="container-fluid ">
         <div className="row">
-          <div className="col-3 p-0">
+          <div className="col-2 p-0">
             <SideBar />
           </div>
 
-          <div className="col-9 mt-4 mb-5 ">
+          <div className="col-10 mt-4 mb-5 ">
             <div className="container-fluid mt-5">
-              <div className="row">
-                <h2>Maintenance Deatils</h2>
-
+              <h2>Maintenance Deatils</h2>
+              <div className="row ms-5">
                 <form>
                   <div class="row g-3 mt-4">
                     <div class="col-2">

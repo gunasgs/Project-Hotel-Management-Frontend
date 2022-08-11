@@ -1,0 +1,45 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    height: 100vh;
+
+}
+
+.back {
+    position: relative;
+    left: -49%;
+    top: 10px;
+    z-index: 1;
+
+}
+
+.back-icon {
+    color: #fff;
+    margin-left: 10px;
+
+
+}
+
+.cover-bg {
+
+    width: 100vw;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    object-fit: contain;
+}
+
+.user-pic {
+    border-radius: 50%;
+    position: relative;
+    margin-top: 35vh;
+    width: 200px;
+
+    z-index: 1;
+
+
+
+}

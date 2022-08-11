@@ -87,7 +87,7 @@ const SideBar = () => {
             </NavLink>
           </MenuItem>
 
-          <SubMenu className="menuu" icon={<FaPhoneAlt />} title="Request">
+          {/* <SubMenu className="menuu" icon={<FaPhoneAlt />} title="Request">
             <MenuItem>
               <NavLink exact to={"/dashboard"}>
                 Raise New Complaint
@@ -99,11 +99,11 @@ const SideBar = () => {
                 Shift a Room
               </NavLink>
             </MenuItem>
-          </SubMenu>
-
+          </SubMenu> */}
+          {/* 
           <MenuItem className="menuu" icon={<FaFile />}>
             Reports
-          </MenuItem>
+          </MenuItem> */}
         </Menu>
       </SidebarContent>
     </ProSidebar>

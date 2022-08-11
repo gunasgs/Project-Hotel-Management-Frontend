@@ -1,16 +1,20 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-
+.cal {
+  border: 1px solid rgb(207, 207, 207);
+}
 
 .cardd {
-  box-shadow: 2px 2px 4px 1.5px rgb(228, 228, 228);
+  border: 1px solid rgb(207, 207, 207);
 }
 
 .cardd:hover {
-  box-shadow: 2px 2px 4px 2px rgb(138 43 226);
+  border-left: 4px solid rgb(138 43 226);
+  border-right: 4px solid rgb(138 43 226);
 
 }
 
@@ -66,14 +70,15 @@
   background: rgb(255 255 255);
   border: 1px solid #ffffff !important;
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 7em !important;
-  height: 25em !important;
+  line-height: 5em !important;
+  height: 28em !important;
 }
 
 .footer {
 
   font-size: 16px;
   font-weight: 500;
+
 
 
 
@@ -95,8 +100,8 @@
   background: rgb(255, 253, 253);
   border: 1px solid #ffffff;
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.125em;
-  padding: 5px;
+  line-height: 1.25em;
+  padding: 3px;
 }
 
 .react-calendar--doubleView {
@@ -135,9 +140,9 @@
 
 .react-calendar__navigation {
   display: flex;
-  height: 44px;
-  margin-bottom: 1em;
-  color: #141414;
+  height: 40px;
+  margin-top: 10px;
+  color: #e70000;
 }
 
 .react-calendar__navigation button {
@@ -157,7 +162,8 @@
 }
 
 .react-calendar__month-view__weekdays__weekday {
-  padding: 0.5em;
+  padding: 1.5em;
+  padding-bottom: 10px;
 }
 
 .react-calendar__month-view__weekNumbers .react-calendar__tile {
@@ -199,7 +205,7 @@
   padding: 10px 6.6667px;
   background: none;
   text-align: center;
-  line-height: 16px;
+  line-height: 34px;
 }
 
 .react-calendar__tile:disabled {

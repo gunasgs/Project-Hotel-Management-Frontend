@@ -2,7 +2,7 @@ import axios from "axios";
 import { useFormik } from "formik";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import "./Register.css";
 function Register() {
   let navigate = useNavigate();
   let formik = useFormik({
@@ -26,14 +26,11 @@ function Register() {
     },
   });
   return (
-    <section class="">
-      <div
-        class="px-4 py-5 px-md-5 text-center text-lg-start"
-        style={{ backgroundcolor: "hsl(0, 0%, 96%)" }}
-      >
+    <section>
+      <div class="px-4 pt-xl-3 px-md-5 text-center text-lg-start">
         <div class="container">
           <div class="row gx-lg-5 align-items-center">
-            <div class="col-md-9 col-lg-6 col-xl-5">
+            <div class="col-md-9 col-lg-6 col-xl-7">
               <img
                 src="https://www.einfosoft.com/templates/admin/spiceangular/source/rtl/assets/images/pages/bg-02.png"
                 class="img-fluid"
@@ -41,96 +38,116 @@ function Register() {
               />
             </div>
 
-            <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="col-lg-6 col-xl-5 mt-xl-3">
               <div class="card">
-                <div class="card-body py-5 px-md-5">
+                <div class="card-body py-4 px-md-5">
                   <form onSubmit={formik.handleSubmit}>
-                    <div class="row">
-                      <div class="col-md-6 mb-4">
+                    <div class="row g-3">
+                      <div class="col-md-6 mb-3">
                         <div class="form-outline">
-                          <label class="form-label">First name</label>
+                          <label class="form-label">
+                            First name<span className="important">*</span>
+                          </label>
                           <input
                             type={"text"}
                             id="Firstname"
-                            class="form-control"
+                            class="form-control "
                             onChange={formik.handleChange}
                             value={formik.values.Firstname}
+                            required
                           />
                         </div>
                       </div>
-                      <div class="col-md-6 mb-4">
+                      <div class="col-md-6 mb-3">
                         <div class="form-outline">
-                          <label class="form-label">Last name</label>
+                          <label class="form-label">
+                            Last name<span className="important">*</span>
+                          </label>
                           <input
                             type="text"
                             id="Lastname"
-                            class="form-control"
+                            class="form-control "
                             onChange={formik.handleChange}
                             value={formik.values.Lastname}
+                            required
                           />
                         </div>
                       </div>
                     </div>
 
-                    <div class="form-outline mb-4">
-                      <label class="form-label">Email address</label>
+                    <div class="form-outline mb-3">
+                      <label class="form-label">
+                        Email<span className="important">*</span>
+                      </label>
                       <input
                         type="email"
                         id="email"
-                        class="form-control"
+                        class="form-control  "
                         onChange={formik.handleChange}
                         value={formik.values.email}
+                        required
                       />
                     </div>
 
-                    <div class="form-outline mb-4">
-                      <label class="form-label">Password</label>
+                    <div class="form-outline mb-3">
+                      <label class="form-label">
+                        Password<span className="important">*</span>
+                      </label>
                       <input
                         type="password"
                         id="password"
-                        class="form-control"
+                        class="form-control  "
+                        required
+                      />
+                    </div>
+                    <div class="form-outline mb-3">
+                      <label class="form-label">
+                        Confirm Password<span className="important">*</span>
+                      </label>
+                      <input
+                        type="password"
+                        id="password"
+                        class="form-control "
                         onChange={formik.handleChange}
                         value={formik.values.password}
+                        required
                       />
                     </div>
 
-                    <div className="col-lg-12 mt-3">
+                    <div className="col-lg-12">
                       <input
                         type={"submit"}
-                        className="btn btn-primary"
+                        className="btn color-btn "
                         value="Sign up"
                       />
-                      <p class="small fw-bold mt-3 pt-1 mb-0">
+                      <p class="small fs-6 fw-bold mt-2 pt-1 mb-0">
                         Have an account already?
-                        <Link to="/" class="link-primary mx-2">
-                          Log in
+                        <Link to="/" class="color ms-2">
+                          Log In
                         </Link>
                       </p>
                     </div>
                     <div class="divider d-flex align-items-center my-4">
-                      <p class="text-center fw-bold mx-3 mb-0">
-                        Or Sign Up With
-                      </p>
+                      <p class="text-center fw-bold mx-3 mb-0">Sign in with</p>
                     </div>
-
-                    <div class="d-flex flex-row mt-3  align-items-center justify-content-center">
+                    <div class="d-flex flex-row align-items-center justify-content-center">
                       <button
                         type="button"
-                        class="btn btn-primary btn-floating  mx-1"
+                        class="btn color-btn btn-floating  mx-1"
                       >
                         <i class="bi bi-facebook"></i>
                       </button>
 
                       <button
                         type="button"
-                        class="btn btn-primary btn-floating mx-3"
+                        class="btn color-btn btn-floating mx-1"
                       >
                         <i class="bi bi-twitter"></i>
                       </button>
 
                       <button
                         type="button"
-                        class="btn btn-primary btn-floating mx-1"
+                        class="btn color-btn btn-floating mx-1"
                       >
                         <i class="bi bi-linkedin"></i>
                       </button>

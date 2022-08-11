@@ -11,6 +11,7 @@ import Addrooms from "./Components/ManageRooms/Addrooms";
 import Staff from "./Components/Staff/Staff";
 import Maintenance from "./Components/Maintenance";
 import AddStaff from "./Components/Staff/AddStaff";
+import Profile from "./Pages/Profile/Profile";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
 
           <Route path="/reservebook" element={<ReserveBook />} />
           <Route path="/reserveview" element={<Reserveview />} />
-
+          <Route path="/profile" element={<Profile />} />
           <Route path="/managerooms" element={<Manageroooms />} />
           <Route path="/addrooms" element={<Addrooms />} />
           <Route path="/staff" element={<Staff />} />

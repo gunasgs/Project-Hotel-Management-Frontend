@@ -26,25 +26,25 @@ function Login() {
     },
   });
   return (
-    <section class="vh-100">
+    <section>
       <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-md-9 col-lg-6 col-xl-5">
+          <div class="col-md-9 col-lg-8 col-xl-7 mt-xl-2">
             <img
               src="https://www.einfosoft.com/templates/admin/spiceangular/source/light/assets/images/pages/bg-01.png"
               class="img-fluid"
               alt="Sample"
             />
           </div>
-          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <div class="col-md-8 col-lg-4 col-xl-4 ">
             <form onSubmit={formik.handleSubmit}>
-              <div class="form-outline mb-4">
-                <label class="form-label">Email address</label>
+              <div class="form-outline mb-3">
+                <label class="form-label fs-5">Email </label>
                 <input
                   type={"email"}
                   name="email"
                   id="email"
-                  class="form-control form-control-lg"
+                  class="form-control "
                   onChange={formik.handleChange}
                   value={formik.values.email}
                   placeholder="Enter a valid email address"
@@ -53,10 +53,10 @@ function Login() {
               </div>
 
               <div class="form-outline mb-3">
-                <label class="form-label">Password</label>
+                <label class="form-label fs-5">Password</label>
                 <input
                   type={"password"}
-                  className="form-control"
+                  className="form-control "
                   name="password"
                   id="password"
                   onChange={formik.handleChange}
@@ -73,31 +73,37 @@ function Login() {
                     type="checkbox"
                     value=""
                     id="form2Example3"
-                    required
                   />
-                  <label class="form-check-label">Remember me</label>
+                  <label class="form-check-label fs-6">Remember me</label>
                 </div>
-                <a href="#!" class="text-body">
+                <a href="#!" class="text-body fs-6">
                   Forgot password?
                 </a>
               </div>
 
-              <div class=" col-sm-12 text-center text-lg-start mt-4 pt-2">
+              <div class=" col-sm-12 text-center text-lg-start mt-2 pt-2">
                 <input
                   type={"submit"}
-                  class="btn btn-primary btn-lg"
+                  class="btn color-bg "
                   style={{ paddingleft: "2.5rem", paddingright: "2.5rem" }}
-                  value={"Login"}
+                  value={"Log In"}
                 />
 
-                <p class="small fw-bold mt-3 pt-1 mb-0">
+                <p class="small fs-6  mt-3 pt-1 mb-4">
                   Don't have an account?{" "}
-                  <Link to="/register" class="link-primary">
+                  <Link to="/register" class="color">
                     Sign Up
                   </Link>
                 </p>
               </div>
             </form>
+
+            <lable className="fs-6 ">
+              Email : <span className="fs-6 colorr"> user@gmail.com</span>
+            </lable>
+            <lable className="fs-6 mt-5 ms-3">
+              Password : <span className="fs-6 colorr "> user</span>
+            </lable>
           </div>
         </div>
       </div>

@@ -10,6 +10,23 @@
     height: calc(100% - 73px);
 }
 
+.color {
+    color: blueviolet;
+}
+
+.colorr {
+    color: blueviolet;
+}
+
+.color-bg {
+    background-color: blueviolet;
+    color: #fff;
+}
+
+.btn:hover {
+    color: #fff;
+}
+
 @media (max-width: 450px) {
     .h-custom {
         height: 100%;
