@@ -13,9 +13,7 @@ function Staff() {
 
   async function fetchAll() {
     try {
-      let userData = await axios.get(
-        "https://project-hotel-management.herokuapp.com/staff"
-      );
+      let userData = await axios.get("https://tired-hen-kit.cyclic.app/staff");
       setstaff(userData.data);
     } catch (error) {}
   }
@@ -31,15 +29,12 @@ function Staff() {
       try {
         if (edit) {
           await axios.put(
-            `https://project-hotel-management.herokuapp.com/staffedit/${currentstaff}`,
+            `https://tired-hen-kit.cyclic.app/staffedit/${currentstaff}`,
             values
           );
           fetchAll();
         } else {
-          await axios.post(
-            "https://project-hotel-management.herokuapp.com/staff",
-            values
-          );
+          await axios.post("https://tired-hen-kit.cyclic.app/staff", values);
           fetchAll();
         }
       } catch (error) {
@@ -51,7 +46,7 @@ function Staff() {
   let handleEdit = async (id) => {
     try {
       let staffedit = await axios.get(
-        `https://project-hotel-management.herokuapp.com/staffview/${id}`
+        `https://tired-hen-kit.cyclic.app/staffview/${id}`
       );
       formik.setValues({
         name: staffedit.data.name,
@@ -77,7 +72,7 @@ function Staff() {
   let handleView = async (id) => {
     try {
       let view1 = await axios.get(
-        `https://project-hotel-management.herokuapp.com/staffview/${id}`
+        `https://tired-hen-kit.cyclic.app/staffview/${id}`
       );
 
       setview(view1.data);
@@ -94,7 +89,7 @@ function Staff() {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`https://project-hotel-management.herokuapp.com/staff/${id}`)
+          .delete(`https://tired-hen-kit.cyclic.app/staff/${id}`)
           .then(() => {
             fetchAll();
           });

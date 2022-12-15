@@ -44,11 +44,9 @@ function Dashboard(props) {
   async function fetchAll() {
     try {
       let userData = await axios.get(
-        "https://project-hotel-management.herokuapp.com/bookings"
+        "https://tired-hen-kit.cyclic.app/bookings"
       );
-      let roomData = await axios.get(
-        "https://project-hotel-management.herokuapp.com/rooms"
-      );
+      let roomData = await axios.get("https://tired-hen-kit.cyclic.app/rooms");
       setbooking(userData.data);
       setroom(roomData.data);
     } catch (error) {}

@@ -47,10 +47,7 @@ function ReserveBook() {
     //     },
     onSubmit: async (values) => {
       try {
-        await axios.post(
-          "https://project-hotel-management.herokuapp.com/booking",
-          values
-        );
+        await axios.post("https://tired-hen-kit.cyclic.app/booking", values);
       } catch (error) {}
     },
   });

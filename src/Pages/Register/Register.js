@@ -14,10 +14,7 @@ function Register() {
     },
     onSubmit: async (values) => {
       try {
-        await axios.post(
-          "https://project-hotel-management.herokuapp.com/register",
-          values
-        );
+        await axios.post("https://tired-hen-kit.cyclic.app/register", values);
         navigate("/");
       } catch (error) {
         console.log(error);

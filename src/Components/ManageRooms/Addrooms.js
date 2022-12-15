@@ -14,10 +14,7 @@ function Addrooms() {
     },
     onSubmit: async (values) => {
       try {
-        await axios.post(
-          "https://project-hotel-management.herokuapp.com/room",
-          values
-        );
+        await axios.post("https://tired-hen-kit.cyclic.app/room", values);
       } catch (error) {}
     },
   });

@@ -14,7 +14,7 @@ function Login() {
     onSubmit: async (values) => {
       try {
         let loginData = await axios.post(
-          "https://project-hotel-management.herokuapp.com/login",
+          "https://tired-hen-kit.cyclic.app/login",
           values
         );
         window.localStorage.setItem("myapptoken", loginData.data.token);

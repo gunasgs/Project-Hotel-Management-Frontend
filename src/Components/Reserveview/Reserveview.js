@@ -15,7 +15,7 @@ function Reserveview() {
   async function fetchAll() {
     try {
       let bookingData = await axios.get(
-        "https://project-hotel-management.herokuapp.com/bookings"
+        "https://tired-hen-kit.cyclic.app/bookings"
       );
       setbooking(bookingData.data);
     } catch (error) {}
@@ -24,7 +24,7 @@ function Reserveview() {
   let handleView = async (id) => {
     try {
       let view = await axios.get(
-        `https://project-hotel-management.herokuapp.com/booking/${id}`
+        `https://tired-hen-kit.cyclic.app/booking/${id}`
       );
 
       setview(view.data);
@@ -42,9 +42,7 @@ function Reserveview() {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(
-            `https://project-hotel-management.herokuapp.com/booking/${id}`
-          )
+          .delete(`https://tired-hen-kit.cyclic.app/booking/${id}`)
           .then(() => {
             fetchAll();
           });

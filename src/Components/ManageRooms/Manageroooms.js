@@ -15,9 +15,7 @@ function Manageroooms() {
 
   async function fetchAll() {
     try {
-      let userData = await axios.get(
-        "https://project-hotel-management.herokuapp.com/rooms"
-      );
+      let userData = await axios.get("https://tired-hen-kit.cyclic.app/rooms");
       setrooms(userData.data);
     } catch (error) {}
   }
@@ -34,7 +32,7 @@ function Manageroooms() {
       try {
         if (edit) {
           await axios.put(
-            `https://project-hotel-management.herokuapp.com/roomsedit/${currentroom}`,
+            `https://tired-hen-kit.cyclic.app/roomsedit/${currentroom}`,
             values
           );
           swal(" Room Updated", {
@@ -43,10 +41,7 @@ function Manageroooms() {
           });
           fetchAll();
         } else {
-          await axios.post(
-            "https://project-hotel-management.herokuapp.com/room",
-            values
-          );
+          await axios.post("https://tired-hen-kit.cyclic.app/room", values);
           fetchAll();
         }
       } catch (error) {
@@ -58,7 +53,7 @@ function Manageroooms() {
   let handleEdit = async (id) => {
     try {
       let roomedit = await axios.get(
-        `https://project-hotel-management.herokuapp.com/roomsview/${id}`
+        `https://tired-hen-kit.cyclic.app/roomsview/${id}`
       );
       formik.setValues({
         roomnumber: roomedit.data.roomnumber,
@@ -78,7 +73,7 @@ function Manageroooms() {
   let handleView = async (id) => {
     try {
       let view = await axios.get(
-        `https://project-hotel-management.herokuapp.com/roomsview/${id}`
+        `https://tired-hen-kit.cyclic.app/roomsview/${id}`
       );
 
       setview(view.data);
@@ -96,7 +91,7 @@ function Manageroooms() {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`https://project-hotel-management.herokuapp.com/rooms/${id}`)
+          .delete(`https://tired-hen-kit.cyclic.app/rooms/${id}`)
           .then(() => {
             fetchAll();
           });

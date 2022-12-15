@@ -16,10 +16,7 @@ const AddStaff = () => {
     },
     onSubmit: async (values) => {
       try {
-        await axios.post(
-          "https://project-hotel-management.herokuapp.com/staff",
-          values
-        );
+        await axios.post("https://tired-hen-kit.cyclic.app/staff", values);
       } catch (error) {}
     },
   });
